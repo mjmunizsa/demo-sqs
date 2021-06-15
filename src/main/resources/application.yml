@@ -1,0 +1,26 @@
+localstack:
+  host: localhost
+
+cloud:
+  aws:
+    credentials:
+      access-key: test
+      secret-key: test
+    sqs:
+      incoming-queue:
+        url: http://localhost:4576/queue/incoming-queue
+        name: incoming-queue
+      outgoing-queue:
+        name: outgoing-queue
+        url: http://localhost:4576/queue/outgoing-queue
+    stack:
+      auto: false
+    region:
+      static: eu-central-1
+
+logging:
+  level:
+    com:
+      amazonaws:
+        util:
+          EC2MetadataUtils: error
