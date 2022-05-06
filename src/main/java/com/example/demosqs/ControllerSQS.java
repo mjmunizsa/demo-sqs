@@ -38,14 +38,15 @@ public class ControllerSQS {
 
 
     @SqsListener(value = "${cloud.aws.sqs.incoming-queue.url}", deletionPolicy = SqsMessageDeletionPolicy.ON_SUCCESS)
-    private void consumeFromSQS(SampleEvent sampleEvent) {
+    private void consumeFromSQS(SampleEvent sampleEvent) throws Exception {
         log.info("Receive message {}", sampleEvent);
         //do some processing
         sampleEvent.setEventTime(ZonedDateTime.now());
         sampleEvent.getData().setEventType(EventData.EventType.PROCESSED);
+        throw new Exception("Error forzado");
 //    amazonSQSAsync.sendMessage(outgoingQueueUrl, mapper.writeValueAsString(sampleEvent));
-        queueMessagingTemplate.convertAndSend(outgoingQueueUrl, sampleEvent);
-        log.info("Forwarded message {} to outgoing queue", sampleEvent);
+        /*queueMessagingTemplate.convertAndSend(outgoingQueueUrl, sampleEvent);
+        log.info("Forwarded message {} to outgoing queue", sampleEvent);*/
     }
 
     @SqsListener(value = "${cloud.aws.sqs.outgoing-queue.url}", deletionPolicy = SqsMessageDeletionPolicy.NO_REDRIVE)

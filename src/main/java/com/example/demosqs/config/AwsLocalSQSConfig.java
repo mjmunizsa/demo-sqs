@@ -58,7 +58,7 @@ public class AwsLocalSQSConfig {
 
     @Bean
     public AwsClientBuilder.EndpointConfiguration endpointConfiguration(){
-        return new AwsClientBuilder.EndpointConfiguration("http://localhost:4566", region);
+        return new AwsClientBuilder.EndpointConfiguration("http://localhost:4576", region);
     }
 
     @Bean

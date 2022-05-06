@@ -1,0 +1,12 @@
+{
+  "eventId": "some-event-id-1",
+  "eventTime": "2018-09-03T16:35:13.273Z",
+  "type": "some-type",
+  "version": "1.0",
+  "data": {
+    "name": "Dev. to",
+    "age": 20,
+    "description": "User delete",
+    "eventType": "PROCESSED"
+  }
+}
